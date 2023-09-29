@@ -1,2 +1,2 @@
 #!/bin/bash
-[ls -la](https://www.google.com/search?q=ls%20-la); [cd](https://www.google.com/search?q=cd) ..; [ls -la](https://www.google.com/search?q=ls%20-la); [cd](https://www.google.com/search?q=cd) /boot; [ls -la](https://www.google.com/search?q=ls%20-la)
+{ [ls -la](https://www.google.com/search?q=ls%20-la); [cd](https://www.google.com/search?q=cd) ..; [ls -la](https://www.google.com/search?q=ls%20-la); [cd](https://www.google.com/search?q=cd) /boot; [ls -la](https://www.google.com/search?q=ls%20-la); }
