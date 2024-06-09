@@ -4,20 +4,24 @@ Script that queries subscribers on a given Reddit subreddit.
 """
 
 import requests
+import sys
 
 
 def number_of_subscribers(subreddit):
-    """Function that returns the numbers of
-    subscribers of a subreddit passed to it"""
+    """ Queries to Reddit API """
+    u_agent = 'Mozilla/5.0'
 
-    apiUrl = "https://reddit.com/r/{}/about.json".format(subreddit)
-    userAgent = "Mozilla/5.0"
+    headers = {
+        'User-Agent': u_agent
+    }
 
-    response = requests.get(apiUrl, headers={"user-agent": userAgent})
-    if not response:
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    res = requests.get(url, headers=headers, allow_redirects=False)
+    if res.status_code != 200:
         return 0
-    retValue = response.json().get('data').get('subscribers')
-    if retValue:
-        return retValue
-    else:
+    dic = res.json()
+    if 'data' not in dic:
         return 0
+    if 'subscribers' not in dic.get('data'):
+        return 0
+    return res.json()['data']['subscribers']
